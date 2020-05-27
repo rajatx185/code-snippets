@@ -1,0 +1,31 @@
+version: '3.1'
+services:
+    adminer:
+      image: adminer
+      restart: always
+      ports:
+        - 8081:8080
+
+    pg:
+      image: postgres:10
+      restart: always
+      ports:
+        - 5432:5432
+      volumes:
+      - $HOME/docker/volumes/postgres:/var/lib/postgresql/data
+      environment:
+        POSTGRES_PASSWORD: admin
+        POSTGRES_USER: admin
+
+    mysql_db_container:
+      image: mysql:latest
+      command: --default-authentication-plugin=mysql_native_password
+      environment:
+        MYSQL_ROOT_PASSWORD: root
+        MYSQL_DATABASE: self_service_tool
+        MYSQL_USER: rajat
+        MYSQL_PASSWORD: rajat
+      ports:
+        - 3306:3306
+      volumes:
+        - $HOME/docker/volumes/mysql_data:/var/lib/mysql

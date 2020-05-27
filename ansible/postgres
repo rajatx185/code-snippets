@@ -1,0 +1,158 @@
+# - name: Create Group {{access_group}}
+#   postgresql_user:
+#     login_user: "{{ master_username }}"
+#     login_password: "{{ master_password }}"
+#     login_host: "{{ database_host_url }}"
+#     port: "{{ database_port }}"
+#     db: "{{ database_name }}"
+#     name: "{{ access_group }}"
+#     role_attr_flags: NOLOGIN
+#     state: absent
+
+
+- name: GRANT ALL PRIVILEGES ON SCHEMA {{schema}} to {{access_group}} group
+  postgresql_privs:
+    login_user: "{{ master_username }}"
+    login_password: "{{ master_password }}"
+    login_host: "{{ database_host_url }}"
+    db: "{{ database_name }}"
+    port: "{{ database_port }}"
+    privs: ALL
+    type: schema
+    objs: "{{schema}}"
+    role: "{{access_group}}"
+    state: absent
+  when: access_group == "read-write"
+
+# - name: GRANT ALL PRIVILEGES ON database {{database_name}} to {{access_group}} group
+#   postgresql_privs:
+#     login_user: "{{ master_username }}"
+#     login_password: "{{ master_password }}"
+#     login_host: "{{ database_host_url }}"
+#     db: "{{ database_name }}"
+#     port: "{{ database_port }}"
+#     privs: ALL
+#     type: database
+#     role: "{{access_group}}"
+#     state: absent
+#   when: access_group == "read-write"
+  
+
+# - name: Create user {{user_name}} and grant group {{access_group}} to it
+#   postgresql_user:
+#     login_user: "{{ master_username }}"
+#     login_password: "{{ master_password }}"
+#     login_host: "{{ database_host_url }}"
+#     port: "{{ database_port }}"
+#     db: "{{ database_name }}"
+#     name: "{{ user_name }}"
+#     password: "{{ user_password }}"
+#     groups: 
+#       - "{{access_group}}"
+#     state: absent
+
+
+
+# - name: GRANT ALL PRIVILEGES ON SCHEMA {{schema}} to {{access_group}} group
+#   postgresql_privs:
+#     login_user: "{{ master_username }}"
+#     login_password: "{{ master_password }}"
+#     login_host: "{{ database_host_url }}"
+#     db: "{{ database_name }}"
+#     port: "{{ database_port }}"
+#     privs: ALL
+#     type: schema
+#     objs: "{{schema}}"
+#     role: "{{access_group}}"
+#     state: present
+  
+
+# - name: GRANT SELECT to group {{access_group}}
+# postgresql_privs:
+#   database: {{database_name}}
+#   privs: SELECT
+#   type: table
+#   objs: table
+#   schema: public
+#   roles: read-only
+#   state: present
+
+# - name: read only perm
+# postgresql_privs:
+# database: self-service-tool
+# state: present
+# privs: SELECT, INSERT, UPDATE
+# type: table
+# objs: table
+# schema: public
+# roles: read-write
+
+# - name: admin perm
+# postgresql_privs:
+#   database: self-service-tool
+#   state: present
+#   privs: SELECT, INSERT, UPDATE, DELETE
+#   type: table
+#   objs: table
+#   schema: public
+#   roles: read-write
+
+- name: Create Group {{access_group}}
+  postgresql_user:
+    login_user: "{{ master_username }}"
+    login_password: "{{ master_password }}"
+    login_host: "{{ database_host_url }}"
+    port: "{{ database_port }}"
+    db: "{{ database_name }}"
+    name: "{{ access_group }}"
+    role_attr_flags: NOLOGIN
+    state: present
+
+
+
+- name: GRANT SELECT PRIVILEGES ON ALL TABLES IN SCHEMA {{schema}} to {{access_group}} group
+  postgresql_privs:
+    login_user: "{{ master_username }}"
+    login_password: "{{ master_password }}"
+    login_host: "{{ database_host_url }}"
+    db: "{{ database_name }}"
+    port: "{{ database_port }}"
+    privs: SELECT
+    type: table
+    objs: ALL_IN_SCHEMA
+    schema: "{{schema}}"  
+    role: "{{access_group}}"
+    state: present
+    grant_option: yes
+  when: access_group == "read_only"
+
+- name: GRANT SELECT,INSERT,UPDATE PRIVILEGES ON ALL TABLES IN SCHEMA {{schema}} to {{access_group}} group
+  postgresql_privs:
+    login_user: "{{ master_username }}"
+    login_password: "{{ master_password }}"
+    login_host: "{{ database_host_url }}"
+    db: "{{ database_name }}"
+    port: "{{ database_port }}"
+    privs: SELECT,INSERT,UPDATE
+    type: table
+    objs: ALL_IN_SCHEMA
+    schema: "{{schema}}"
+    role: "{{access_group}}"
+    state: present
+  when: access_group == "read_write"
+
+- name: GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA {{schema}} to {{access_group}} group
+  postgresql_privs:
+    login_user: "{{ master_username }}"
+    login_password: "{{ master_password }}"
+    login_host: "{{ database_host_url }}"
+    db: "{{ database_name }}"
+    port: "{{ database_port }}"
+    privs: ALL
+    type: table
+    objs: ALL_IN_SCHEMA
+    schema: "{{schema}}"
+    role: "{{access_group}}"
+    state: present
+  when: access_group == "admin"
+

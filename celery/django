@@ -1,0 +1,1 @@
+celery -A sst worker -l info

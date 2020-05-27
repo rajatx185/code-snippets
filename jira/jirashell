@@ -1,0 +1,5 @@
+jirashell -s https://rajatx185.atlassian.net -u rajatx185@gmail.com -p DgU1tlSfx89YdKDPA1VhFAD7
+jira.add_watcher(new_issue, watcher='5ea187b40d58350c2bfb3663')
+jira.transition_issue(new_issue, 'Done')
+jira.assign_issue(new_issue, '5ea187b40d58350c2bfb3663')
+issue.update(notify=False, description=build_url)
