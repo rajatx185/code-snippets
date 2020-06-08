@@ -1,0 +1,19 @@
+How to create a django project??
+django-admin startproject hellodjango
+
+How to create a django app??
+python3 manage.py startapp helloworld
+
+#How to start a local django server??
+python3 manage.py runserver	0.0.0.0:8081
+
+#How to find you BASE_DIR in django??
+>>>from django.conf import settings
+>>>settings.BASE_DIR
+
+
+django-admin.py startproject myproject ~/myprojectdir
+
+python manage.py makemigrations --settings=sst.settings.production
+python manage.py createsuperuser --settings=sst.settings.production
+python manage.py runserver --settings=sst.settings.production

@@ -1,0 +1,13 @@
+echo_supervisord_conf > ./djangobin.conf
+
+supervisorctl reread
+
+supervisorctl update
+supervisorctl status
+
+inside interactive shell
+stop/start/restart gunicorn
+tail gunicorn
+tail gunicorn stderr
+
+stop/start/restart all

@@ -1,0 +1,3 @@
+# How to check ports and process on mac??
+netstat -Watn | grep LISTEN
+lsof -Pnl +M -i -cmd | grep LISTEN

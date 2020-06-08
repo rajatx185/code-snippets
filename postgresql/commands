@@ -1,1 +1,9 @@
+#How to create a role with nologin permission??
 CREATE ROLE read_postgres2 NOLOGIN;
+
+# How to connect to a remote postgres server
+psql --host=<endpoint-ip/url> --port=<port> --username=<user-name> --password --dbname=<name>
+
+#future tables permission
+alter default privileges in schema public grant all on tables to backup;
+alter default privileges in schema public grant all on sequences to backup; 

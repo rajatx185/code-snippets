@@ -1,0 +1,2 @@
+setting timezone
+timedatectl set-timezone Asia/Kolkata

@@ -1,0 +1,30 @@
+
+https://docs.ansible.com/ansible/latest/reference_appendices/special_variables.html	
+Special ansible variables
+https://docs.ansible.com/ansible/latest/reference_appendices/YAMLSyntax.html	
+Basic ansible syntax
+https://docs.ansible.com/ansible/2.4/playbooks_lookups.html	Lookups in ansible
+https://docs.ansible.com/ansible/latest/user_guide/playbooks_templating.html	
+Jinja for ansible
+https://willthames.github.io/devops-singapore-2016/01-intro.html#/	
+Ansible crash course
+https://docs.ansible.com/ansible/latest/user_guide/playbooks_best_practices.html	
+Best practices ansible
+https://docs.ansible.com/ansible/latest/plugins/callback.html	
+Ansible Callback plugin 
+https://adminswerk.de/multi-line-string-yaml-ansible-I/	
+Multi line variables
+https://willthames.github.io/devops-singapore-2016/01-intro.html#/	
+Ansible best practices
+https://www.linuxtechi.com/use-variables-in-ansible-playbook/
+Variables in ansible
+https://www.jeffgeerling.com/blog/yaml-best-practices-ansible-playbooks-tasks	
+Yaml best practices
+https://docs.ansible.com/ansible/latest/reference_appendices/YAMLSyntax.html	
+Yaml syntax
+https://www.middlewareinventory.com/blog/ansible-facts-list-how-to-use-ansible-facts/	
+Ansible facts
+https://medium.com/@Joachim8675309/docker-using-shell-or-ansible-7cdceb646d3	
+Docker on ansible
+https://docs.ansible.com/ansible/latest/modules/list_of_database_modules.html	
+Database modules

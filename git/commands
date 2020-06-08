@@ -1,0 +1,5 @@
+git remote set-url origin git@bitbucket.org:pharmaeasyteam/self-service-tool.git
+
+
+#remove deleted remote branch from local
+git fetch --prune 

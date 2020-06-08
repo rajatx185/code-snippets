@@ -1,0 +1,6 @@
+Curl - breakdown
+-L  follow redirects
+-o output to a file not stdout
+-s silent mode
+-S show error when silent mode is used
+-f fail silently

@@ -1,0 +1,5 @@
+[default]
+region = ap-south-1
+
+[profile go-mercury]
+region = ap-south-1
