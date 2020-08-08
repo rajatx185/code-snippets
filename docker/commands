@@ -1,2 +1,6 @@
 ###How to remove all exited docker containers??
 docker rm $(docker ps -a -f status=exited -q)
+
+
+Docker Registry
+curl -X GET http://dregistry.gometal.in/v2/_catalog

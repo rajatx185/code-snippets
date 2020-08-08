@@ -1,0 +1,1 @@
+echo 'jenkins.model.Jenkins.instance.securityRealm.createAccount("user1", "password123")' | java -jar jenkins-cli.jar -auth rajat.g@pharmeasy.in:115c5e0de1609dc373c11f332d23743fb4 -s http://localhost:8080/ groovy =

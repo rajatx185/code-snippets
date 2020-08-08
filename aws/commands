@@ -1,0 +1,1 @@
+aws sts assume-role --role-arn arn:aws:iam::774391698360:role/rajat-test --role-session-name "route53-session" --profile go-mercury_rajat > assume-role-output.txt
